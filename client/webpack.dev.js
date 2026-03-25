@@ -3,7 +3,7 @@ const common = require('./webpack.common.js');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
-  mode: 'production',
+  mode: 'development',
   // plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
