@@ -7,12 +7,13 @@ import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   return (
-    <div className='App'>
-      {/* <Navbar /> */}
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        {/* <Route path='/portfolio' element={<Portfolio />} /> */}
-      </Routes>
+    <div className='App-Main'>
+      <div className='App-Background' />
+      <div className='App-Content'>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+        </Routes>
+      </div>
     </div>
   );
 };

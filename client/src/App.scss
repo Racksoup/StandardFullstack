@@ -1,16 +1,26 @@
 html {
   width: 100%;
   height: 100%;
+  font-weight: 400;
   overflow-y: overlay;
-  overflow-x: hidden;
-  background-color: rgb(31, 31, 31);
 }
 
 body {
   min-height: 100%;
 }
 
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0.2rem;
+
+  &-thumb {
+    background: rgb(95,95,95);
+    border-radius: 0.1rem;
+  }
+}
+
 * {
+  font-family: Frag;
   cursor: default;
   margin: 0;
   padding: 0;
@@ -19,28 +29,12 @@ body {
   padding: none;
   outline: none;
   background: none;
-  color: black;
+  color: white;
   box-sizing: border-box;
-  font-size: 1.2rem;
-  font-weight: 400;
-  font-family: SSP;
-}
-
-::-webkit-scrollbar {
-  background: transparent;
-  width: 0.8rem;
-
-  &-thumb {
-    background: rgb(216, 190, 106);
-    border-radius: 0.4rem;
-    height: 20px;
-  }
 }
 
 a {
   color: black;
-  text-decoration: none;
-  cursor: pointer;
 
   &:active {
     color: black;
@@ -52,8 +46,84 @@ button {
 }
 
 .App {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  &-Main {
+    width: 100%;
+    color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-Background {
+    background-color: Vars.$bgColor;
+    position: fixed;
+    z-index: -4;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 }
+
+.Link {
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.Icon {
+  cursor: pointer;
+  svg {
+    color: black;
+    cursor: pointer;
+  }
+  path {
+    color: black;
+    cursor: pointer;
+  }
+}
+
+@font-face {
+  font-family: "Frag";
+  src: url("fonts/FragmentMono-Regular.ttf");
+}
+@font-face {
+  font-family: "Marck";
+  src: url("fonts/MarckScript-Regular.ttf");
+}
+@font-face {
+  font-family: "SSP111";
+  src: url("fonts/Source_Sans_Pro/SourceSansPro-Black.ttf");
+}
+@font-face {
+  font-family: "SSP11";
+  src: url("fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf");
+}
+@font-face {
+  font-family: "SSP1";
+  src: url("fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf");
+}
+@font-face {
+  font-family: "SSP";
+  src: url("fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf");
+}
+@font-face {
+  font-family: "SSP0";
+  src: url("fonts/Source_Sans_Pro/SourceSansPro-Light.ttf");
+}
+@font-face {
+  font-family: "SSP00";
+  src: url("fonts/Source_Sans_Pro/SourceSansPro-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "SSP00";
+  src: url("fonts/Source_Sans_Pro/SourceSansPro-ExtraLight.ttf");

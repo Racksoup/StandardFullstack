@@ -1,21 +1,10 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const devConfig = {
-  mode: 'development',
-  devtool: 'inline-source-map',
-  devServer: {
-    static: './dist',
-    hot: true,
-    historyApiFallback: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8080',
-        router: () => 'http://localhost:5000',
-        logLevel: 'debug' /*optional*/,
-      },
-    },
-  },
+module.exports = merge(common, {
+  mode: 'production',
+  // plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -24,10 +13,15 @@ const devConfig = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 
+          {
+            loader: 'sass-loader',
+            options: {
+              api: 'modern-compiler',
+            },
+          },
+        ],
       },
     ],
   },
-};
-
-module.exports = merge(common, devConfig);
+});
